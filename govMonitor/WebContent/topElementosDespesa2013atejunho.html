@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GovGraficos</title>
+<meta charset="utf-8">
+<link  rel="stylesheet" href="css/govPrincipal.css">
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/govJQuery.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Elemento de despesa', 'Valor'],
+          ['Concessão de empréstimo financeiro', 14008865703.00],
+          ['Outros benefícios de natureza social', 13732192392.55],
+          ['Outros serviços de terceiros - Pessoas jurídicas',  6816455316.85],
+          ['Compensações ao RGPS', 2884391078.28],
+          ['Material de consumo', 2616928442.32]
+        ]);
+
+        var options = {
+          title: 'Elementos de despesa mais gastos de janeiro até julho de 2013.',
+		  is3D: true,
+		  backgroundColor: '#FFEFD5', //Papaya Whip
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pizza'));
+        chart.draw(data, options);
+      }
+</script>
+	
+</head>
+<body>
+<div class="body">
+		<div id="login-area">
+				Email: <input type="text" name="email"><br>
+				Senha: <input type="password" name="pw"><br>
+				<input type="submit" name="Entrar">
+		</div>
+		<div id="head">Gov Monitor<br> <div class="menu" id="busca">
+				<!-- <img id="olho-brasil" src="olho.jpg"/> -->
+				<form name="formBusca" action="http://www.google.com/search"
+					method="get" onsubmit = "return validaCampo()">
+					Google Search: <input type="text" name="q" id = "q" />
+					<input type="submit" name="btnBuscar" value="Pesquisar"/>
+				</form>
+			</div>
+		</div>
+		<div id="corpo">
+			
+			<div class="menu" id="inicio"><a href="index.jsp">Inicio</a></div>
+			<div class="menu" id="graficos"><a href="govGraficos.jsp">Gráficos</a></div>
+			<div class="menu" id="pesquisa">Pesquisa</div>
+			<div class="menu" id="sobre">Sobre</div>
+			<div class="menu" id="contato">Contato</div>
+			
+			<div id="conteudo">
+			<h2>Elementos de despesa mais gastos no ano de 2013</h2>
+			<p><em>Em: 23/03/2014, às 16:06</em></p>
+			<p class="conteudo-grafico">Até 2013, sabe estou escrevendo isso aqui só para ilustrar melhor meu site. Então, o governo brasileiro gasta dinheiro demais
+			com coisas que nem imaginamos sabe? 
+
+			<figcaption>
+				<div id="pizza" style="width: 700px; height: 450px"></div>
+				</div>
+			<em>Elementos de despesa que tiveram maiores gastos em 2013. Gráfico: Adail Carvalho.</em>
+			</figcaption>
+			
+		</div>
+		<div id="rodape">
+			<p><em>Desenvolvido por: José Adail Carvalho Filho</em></p>
+		</div>
+</div>
+</body>
+</html>
